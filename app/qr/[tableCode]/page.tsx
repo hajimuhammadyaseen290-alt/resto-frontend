@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { qrApi } from "@/lib/qrApi";
-import { SOCKET_URL } from "@/lib/config";
+import { API_URL, SOCKET_URL } from "@/lib/config";
 import { io, Socket } from "socket.io-client";
 import {
   Flame,
@@ -176,9 +176,7 @@ export default function QRMenuPage() {
     const t = setTimeout(async () => {
       try {
         const r = await fetch(
-          `${typeof window !== "undefined" ? "" : ""}${
-            process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000"
-          }/api/promotions/validate`,
+          `${API_URL}/api/promotions/validate`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

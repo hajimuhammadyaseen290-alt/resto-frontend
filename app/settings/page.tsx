@@ -303,7 +303,7 @@ export default function SettingsPage() {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-ink-500">API base</span>
-                <span className="font-mono text-xs">localhost:4000</span>
+                <span className="font-mono text-xs">{API_URL}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-ink-500">DB</span>

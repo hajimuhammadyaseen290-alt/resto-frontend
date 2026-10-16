@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { CheckCircle2, AlertTriangle, X } from "lucide-react";
 
-type Toast = { id: number; type: "success" | "error" | "info"; msg: string };
+type Toast = { id: number; type: "success" | "error" | "info" | "warn"; msg: string };
 
 const Ctx = createContext<(msg: string, type?: Toast["type"]) => void>(() => {});
 
@@ -30,6 +30,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 ? "border-rose-200 bg-rose-50/80"
                 : t.type === "success"
                 ? "border-emerald-200 bg-emerald-50/80"
+                : t.type === "warn"
+                ? "border-amber-200 bg-amber-50/80"
                 : ""
             }`}
           >
@@ -37,6 +39,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             ) : t.type === "error" ? (
               <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+            ) : t.type === "warn" ? (
+              <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             ) : (
               <CheckCircle2 className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
             )}

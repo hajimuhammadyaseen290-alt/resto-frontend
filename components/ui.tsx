@@ -115,7 +115,6 @@ export function StatusBadge({
     Served: "bg-emerald-50 text-emerald-700",
     Paid: "bg-emerald-50 text-emerald-700",
     Completed: "bg-emerald-50 text-emerald-700",
-    Pending: "bg-amber-50 text-amber-700",
     Overdue: "bg-rose-50 text-rose-700",
     Cancelled: "bg-rose-50 text-rose-700",
     Free: "bg-emerald-50 text-emerald-700",

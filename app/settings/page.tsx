@@ -1226,7 +1226,7 @@ function PrintersPanel({
   async function removeOne(id: string) {
     if (!confirm("Remove this printer?")) return;
     try {
-      await api.delete(`/api/settings/printers/${id}`);
+      await api.del(`/api/settings/printers/${id}`);
       toast("Removed", "success");
       load();
     } catch (e: any) {
@@ -2292,7 +2292,7 @@ function WebhooksPanel({
   }
   async function removeOne(id: string) {
     if (!confirm("Delete this webhook?")) return;
-    await api.delete(`/api/settings/webhooks/${id}`);
+    await api.del(`/api/settings/webhooks/${id}`);
     load();
   }
 
@@ -2590,7 +2590,7 @@ function ApiKeysPanel({
   }
   async function revoke(id: string) {
     if (!confirm("Revoke this key? Third parties will lose access.")) return;
-    await api.delete(`/api/settings/api-keys/${id}`);
+    await api.del(`/api/settings/api-keys/${id}`);
     load();
   }
 
